@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center h-full gap-2">
+    <div className="flex flex-col justify-center items-center h-full gap-8 sm:flex-row">
       <LazyLoadingType link="/load-more-button-example">
         {`"Load More"`} button
       </LazyLoadingType>

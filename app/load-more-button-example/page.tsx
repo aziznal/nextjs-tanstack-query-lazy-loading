@@ -31,8 +31,11 @@ export default function LoadMoreButtonInfiniteScrollPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[100dvh] mx-auto w-full sm:w-[500px] py-24">
-      <Link className="fixed top-12 left-12 hover:underline" href="/">
+    <div className="flex flex-col items-center justify-center min-h-[100dvh] mx-auto w-full sm:w-[500px] py-24 px-4">
+      <Link
+        className="absolute top-4 left-4 sm:fixed sm:top-12 sm:left-12 hover:underline"
+        href="/"
+      >
         <LucideArrowLeft size="42" />
       </Link>
 
