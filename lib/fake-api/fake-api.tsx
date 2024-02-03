@@ -19,8 +19,8 @@ export const fakeApi = {
     nextCursor: number;
   }> {
     const items = new Array(options.count).fill(0).map((_, index) => ({
-      id: `id-${options.cursor + index}`,
-      name: `Item ${options.cursor + index}`,
+      id: `id-${options.cursor + index + 1}`,
+      name: `Item ${options.cursor + index + 1}`,
     }));
 
     await new Promise((resolve) =>

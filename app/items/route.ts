@@ -6,6 +6,7 @@ export async function GET(req: NextRequest) {
 
   const cursor = Number(searchParams.get("cursor"));
   const count = Number(searchParams.get("count"));
+  const simulatedMaxItems = Number(searchParams.get("simulatedMax"));
 
   const { items, nextCursor } = await fakeApi.getItems({
     count,
@@ -15,6 +16,6 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json({
     items,
-    nextCursor,
+    nextCursor: cursor + count < simulatedMaxItems ? nextCursor : null,
   });
 }

@@ -15,8 +15,8 @@ export default function Item({ item }: ItemProps) {
 
 export function ItemLoadingSkeleton() {
   return (
-    <Skeleton className="border-2 p-4 flex w-full rounded-md hover:bg-slate-100 transition-colors">
-      <Skeleton className="w-[64px] h-4 bg-gray-300 rounded-md animate-pulse" />
+    <Skeleton className="border-2 p-4 flex w-full rounded-md hover:bg-slate-100 transition-colors h-[60px] shrink-0">
+      <Skeleton className="w-[64px] h-4 bg-slate-300" />
     </Skeleton>
   );
 }
