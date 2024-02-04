@@ -14,7 +14,7 @@ export const useGetInfiniteItems = ({
     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
     queryFn: async ({ pageParam }) => {
       const items = await fetch(
-        `/items?count=${pageSize}&cursor=${pageParam}&simulatedMax=${simulatedMax}`
+        `/api/items?count=${pageSize}&cursor=${pageParam}&simulatedMax=${simulatedMax}`
       ).then((res) => res.json());
 
       return items;

@@ -1,13 +1,14 @@
 "use client";
 
 import Item, { ItemLoadingSkeleton } from "@/components/item";
-import Notes from "@/components/notes";
 import { useGetInfiniteItems } from "@/lib/use-get-infinite-items";
 import { LucideArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Fragment, useEffect, useRef } from "react";
 
 const PAGE_SIZE = 8;
+
+// NOTE: a client doesn't normally send this. This is just for the simulated API
 const SIMULATED_MAX = 80;
 
 export default function LoadMoreButtonInfiniteScrollPage() {
@@ -94,8 +95,6 @@ export default function LoadMoreButtonInfiniteScrollPage() {
         You are viewing {(query.data?.pages.length || 0) * PAGE_SIZE} of{" "}
         {SIMULATED_MAX} items
       </div>
-
-      <Notes />
     </div>
   );
 }
