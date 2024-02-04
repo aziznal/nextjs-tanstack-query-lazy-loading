@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 
 export default function Home() {
   return (
@@ -21,10 +21,11 @@ type LazyLoadingTypeProps = {
 
 const LazyLoadingType = (props: LazyLoadingTypeProps) => {
   return (
-    <Link href={props.link}>
-      <div className="border h-[200px] w-[200px] rounded-md p-2 flex items-center justify-center hover:bg-slate-100 transition-colors select-none cursor-pointer font-bold">
-        {props.children}
-      </div>
-    </Link>
+    <div
+      onClick={() => location.assign(props.link)}
+      className="border h-[200px] w-[200px] rounded-md p-2 flex items-center justify-center hover:bg-slate-100 transition-colors select-none cursor-pointer font-bold"
+    >
+      {props.children}
+    </div>
   );
 };
