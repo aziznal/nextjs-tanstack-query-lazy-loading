@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </Link>
 
-      <footer className="absolute bottom-8">
+      <footer className="py-8 sm:absolute bottom-8">
         <span>Feb 2024 - Made by</span>
 
         <a
