@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Fragment, useEffect, useRef } from "react";
 
 const PAGE_SIZE = 8;
-const SIMULATED_MAX = 40;
+const SIMULATED_MAX = 80;
 
 export default function LoadMoreButtonInfiniteScrollPage() {
   const query = useGetInfiniteItems({

@@ -63,7 +63,7 @@ export default function LoadMoreButtonInfiniteScrollPage() {
 
         {(query.isLoading || query.isFetchingNextPage) && (
           <>
-            {new Array(PAGE_SIZE).fill(null).map((_, index) => (
+            {new Array(2).fill(null).map((_, index) => (
               <ItemLoadingSkeleton key={index} />
             ))}
           </>
