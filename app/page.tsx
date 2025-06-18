@@ -80,7 +80,7 @@ const LazyLoadingType = (props: LazyLoadingTypeProps) => {
           location.assign(props.link);
         }
       }}
-      className="border h-[200px] w-[200px] rounded-md p-2 flex items-center justify-center hover:bg-slate-100 transition-colors select-none cursor-pointer font-bold flex-col gap-2"
+      className="border h-[200px] w-[200px] rounded-md p-2 flex items-center justify-center hover:bg-slate-800 transition-colors select-none cursor-pointer font-bold flex-col gap-2"
     >
       {props.children}
     </div>

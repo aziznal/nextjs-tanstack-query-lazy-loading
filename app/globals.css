@@ -76,7 +76,7 @@
 }
 
 code {
-  @apply p-1 bg-slate-100 rounded-md text-orange-600 leading-loose;
+  @apply p-1 bg-slate-800 rounded-md text-orange-300 leading-loose;
 }
 
 a {

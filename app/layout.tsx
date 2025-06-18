@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/tanstack-query-client";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Lazy loading (infinite scroll)",
@@ -18,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className={cn(inter.className, "min-h-full sm:h-full")}>
+    <html lang="en" className="h-full dark">
+      <body className={cn(font.className, "min-h-full sm:h-full")}>
         <QueryClientProvider client={queryClient}>
           {children}
         </QueryClientProvider>

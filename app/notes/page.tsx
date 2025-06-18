@@ -11,10 +11,10 @@ export default function Notes() {
         <LucideArrowLeft size="42" />
       </Link>
 
-      <div className="w-full border mt-12 rounded-md text-xs p-2">
+      <div className="w-full border mt-12 rounded-md text-xs p-4">
         <h2 className="font-bold">Notes</h2>
 
-        <ul className="list-decimal pl-4 flex flex-col gap-1 pt-2">
+        <ul className="list-decimal pl-4 flex flex-col gap-4 pt-2">
           <li>
             Read the{" "}
             <Link
