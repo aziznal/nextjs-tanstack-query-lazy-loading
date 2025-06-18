@@ -14,15 +14,37 @@ export default function Notes() {
       <div className="w-full border mt-12 rounded-md text-xs p-4">
         <h2 className="font-bold">Notes</h2>
 
-        <ul className="list-decimal pl-4 flex flex-col gap-4 pt-2">
+        <ol className="list-decimal pl-4 flex flex-col gap-4 pt-2">
           <li>
-            Read the{" "}
-            <Link
-              href="https://tanstack.com/query/latest/docs/framework/react/guides/infinite-queries"
-              target="_blank"
-            >
-              docs
-            </Link>
+            Seriously, RTFM:
+            <ul className="list-disc pl-4 pt-2 flex flex-col gap-2">
+              <li>
+                <Link
+                  href="https://tanstack.com/query/latest/docs/framework/react/guides/infinite-queries"
+                  target="_blank"
+                >
+                  infinite queries
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://tanstack.com/query/v5/docs/framework/react/guides/ssr#get-started-fast-with-initialdata"
+                  target="_blank"
+                >
+                  basic hydration (including next.js examples)
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://tanstack.com/query/v5/docs/framework/react/guides/advanced-ssr"
+                  target="_blank"
+                >
+                  advanced hydration
+                </Link>
+              </li>
+            </ul>
           </li>
 
           <li>
@@ -101,7 +123,7 @@ export default function Notes() {
             themselves makes things look much smoother. Though it may not always
             be possible.
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   );
