@@ -1,21 +1,30 @@
 import { fakeApi } from "@/lib/fake-api/fake-api";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const searchParams = req.nextUrl.searchParams;
-
-  const cursor = Number(searchParams.get("cursor"));
-  const count = Number(searchParams.get("count"));
-  const simulatedMaxItems = Number(searchParams.get("simulatedMax"));
-
+export async function getItems(args: {
+  count: number;
+  cursor: number;
+  simulatedMax: number;
+}) {
   const { items, nextCursor } = await fakeApi.getItems({
-    count,
-    cursor,
+    count: args.count,
+    cursor: args.cursor,
     fakeDelay: 1000,
   });
 
-  return NextResponse.json({
+  return {
     items,
-    nextCursor: cursor + count < simulatedMaxItems ? nextCursor : null,
-  });
+    nextCursor:
+      args.cursor + args.count < args.simulatedMax ? nextCursor : null,
+  };
+}
+
+export async function GET(req: NextRequest) {
+  return NextResponse.json(
+    await getItems({
+      count: +req.nextUrl.searchParams.get("count")!,
+      cursor: +req.nextUrl.searchParams.get("cursor")!,
+      simulatedMax: +req.nextUrl.searchParams.get("simulatedMax")!,
+    }),
+  );
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/lib/tanstack-query-client";
 import { cn } from "@/lib/utils";
+import { Providers } from "@/components/providers";
 
 const font = Ubuntu({
   subsets: ["latin"],
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   description: "Lazy loading (infinite scroll) with React Query and Next.js",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -23,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full dark">
       <body className={cn(font.className, "min-h-full sm:h-full")}>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import { LucideArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Fragment, useEffect, useRef } from "react";
 
-export default function InfiniteScrollPage() {
+export function HydratedInfiniteScrollPage() {
   const query = useGetInfiniteItems({
     pageSize: PAGE_SIZE,
     simulatedMax: SIMULATED_MAX,

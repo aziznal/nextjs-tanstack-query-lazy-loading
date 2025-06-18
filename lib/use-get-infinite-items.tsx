@@ -1,5 +1,22 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import {
+  infiniteQueryOptions,
+  useInfiniteQuery
+} from "@tanstack/react-query";
 import { FakeItem } from "./fake-api/fake-api";
+
+export const itemsKeyFactory = {
+  all: ["items"],
+  items: () => [...itemsKeyFactory.all] as const,
+} as const;
+
+export const getInfiniteItemsQueryOptions = infiniteQueryOptions<{
+  items: FakeItem[];
+  nextCursor: number | null;
+}>({
+  queryKey: itemsKeyFactory.items(),
+  initialPageParam: 0,
+  getNextPageParam: (lastPage, _pages) => lastPage.nextCursor,
+});
 
 export const useGetInfiniteItems = ({
   pageSize,
@@ -8,15 +25,11 @@ export const useGetInfiniteItems = ({
   pageSize: number;
   simulatedMax: number;
 }) =>
-  useInfiniteQuery<{ items: FakeItem[]; nextCursor: number }>({
-    queryKey: ["infinite-items"],
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  useInfiniteQuery({
+    ...getInfiniteItemsQueryOptions,
     queryFn: async ({ pageParam }) => {
-      const items = await fetch(
-        `/api/items?count=${pageSize}&cursor=${pageParam}&simulatedMax=${simulatedMax}`
+      return fetch(
+        `/api/items?count=${pageSize}&cursor=${pageParam}&simulatedMax=${simulatedMax}`,
       ).then((res) => res.json());
-
-      return items;
     },
   });

@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  LucideCupSoda,
   LucideEye,
   LucideGithub,
   LucideMemoryStick,
@@ -33,12 +34,27 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center gap-8 sm:flex-row">
         <LazyLoadingType link="/load-more-button-example">
           <LucideMousePointerClick size={36} />
-          <span>{`"Load More"`} button</span>
+          <span className="text-center">{`"Load More"`} button</span>
         </LazyLoadingType>
 
         <LazyLoadingType link="/scroll-based-example">
           <LucideMouse size={36} />
-          <span>Scroll-based</span>
+          <span className="text-center">Scroll-based</span>
+        </LazyLoadingType>
+
+        <LazyLoadingType link="/scroll-based-with-ssr-and-hydration">
+          <LucideMouse size={36} />
+
+          <div className="text-center">
+            <span>
+              Scroll-based <br />
+            </span>
+
+            <span className="flex items-center gap-1">
+              with Hydration
+              <LucideCupSoda size="20" />
+            </span>
+          </div>
         </LazyLoadingType>
       </div>
 

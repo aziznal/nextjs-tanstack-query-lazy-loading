@@ -2,15 +2,11 @@
 
 import Item, { ItemLoadingSkeleton } from "@/components/item";
 import { Button } from "@/components/ui/button";
+import { PAGE_SIZE, SIMULATED_MAX } from "@/lib/constants";
 import { useGetInfiniteItems } from "@/lib/use-get-infinite-items";
 import { LucideArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Fragment, useRef } from "react";
-
-const PAGE_SIZE = 5;
-
-// NOTE: a client doesn't normally send this. This is just for the simulated API
-const SIMULATED_MAX = 20;
 
 export default function LoadMorePage() {
   const query = useGetInfiniteItems({
@@ -85,8 +81,8 @@ export default function LoadMorePage() {
         {query.isLoading || query.isFetchingNextPage
           ? "Loading..."
           : query.hasNextPage
-          ? "Load More"
-          : "Nothing more to load"}
+            ? "Load More"
+            : "Nothing more to load"}
       </Button>
     </div>
   );
