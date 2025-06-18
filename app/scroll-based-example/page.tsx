@@ -11,13 +11,11 @@ const PAGE_SIZE = 8;
 // NOTE: a client doesn't normally send this. This is just for the simulated API
 const SIMULATED_MAX = 80;
 
-export default function LoadMoreButtonInfiniteScrollPage() {
+export default function InfiniteScrollPage() {
   const query = useGetInfiniteItems({
     pageSize: PAGE_SIZE,
     simulatedMax: SIMULATED_MAX,
   });
-
-  const itemListRef = useRef<HTMLUListElement>(null);
 
   const loaderRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +23,7 @@ export default function LoadMoreButtonInfiniteScrollPage() {
     if (!window) return;
 
     const observer = new IntersectionObserver(
-      (entries, observer) => {
+      (entries, _observer) => {
         const isIntersecting = entries[0].isIntersecting;
 
         if (!isIntersecting) return;
@@ -38,7 +36,7 @@ export default function LoadMoreButtonInfiniteScrollPage() {
       },
       {
         threshold: 1.0,
-      }
+      },
     );
 
     if (!loaderRef.current) return;
@@ -64,10 +62,7 @@ export default function LoadMoreButtonInfiniteScrollPage() {
         Scroll-based (Intersection Observer)
       </h1>
 
-      <ul
-        className="flex flex-col items-center gap-4 w-full p-4 pb-12 border rounded-md h-[500px] overflow-y-auto"
-        ref={itemListRef}
-      >
+      <ul className="flex flex-col items-center gap-4 w-full p-4 pb-12 border rounded-md h-[500px] overflow-y-auto">
         {query.data?.pages.map((page) => (
           <Fragment
             key={page.items

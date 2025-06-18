@@ -12,7 +12,7 @@ const PAGE_SIZE = 5;
 // NOTE: a client doesn't normally send this. This is just for the simulated API
 const SIMULATED_MAX = 20;
 
-export default function LoadMoreButtonInfiniteScrollPage() {
+export default function LoadMorePage() {
   const query = useGetInfiniteItems({
     pageSize: PAGE_SIZE,
     simulatedMax: SIMULATED_MAX,
